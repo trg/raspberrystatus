@@ -1,0 +1,3 @@
+pywunder==0.0.1
+requests==0.14.1
+wsgiref==0.1.2
