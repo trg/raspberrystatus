@@ -24,6 +24,10 @@ class PizzaClub:
         height = 22 ; width = 78
         win = curses.newwin(height, width, begin_y, begin_x)
 
+        # Menu
+        menu_text = "press q to exit"
+        win.addstr(height - 1, width - len(menu_text) - 1, menu_text)
+        
         # Brewskeeball
         win.addstr(3, 0, Util.centerString("Next Matchup", width))
         win.addstr(5, 0, Util.centerString(self.__brewskeeball.matchupTeams(), width))
