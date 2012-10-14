@@ -5,6 +5,7 @@ import curses
 # RaspberryStatus Modules
 from weather import Weather
 from brewskeeball import Brewskeeball
+from twitter import Twitter
 from util import Util
 
 class RaspberryStatus:
@@ -12,6 +13,7 @@ class RaspberryStatus:
         self.__screen = None
         self.__weather = Weather()
         self.__brewskeeball = Brewskeeball()
+        self.__twitter = Twitter()
 
     def printScreen(self):
         scn = self.__screen
@@ -39,6 +41,13 @@ class RaspberryStatus:
         win.addstr(6, 0, Util.centerString(self.__brewskeeball.matchupTeams(), width))
         win.addstr(7, 0, Util.centerString("%s at %s" % (self.__brewskeeball.matchupDate(), self.__brewskeeball.matchupTime()), width))
         win.hline( 8, 0, "-", width)
+
+        # Twitter
+        win.addstr(9,  0, Util.centerString("TWITTER @tom_g_", width), curses.A_BOLD)
+        latest_tweet = self.__twitter.latestTweet()
+        author_name = "@%s" % latest_tweet.author.screen_name
+        win.addstr(10, 0, author_name, curses.A_BOLD)
+        win.addstr(10, len(author_name)+1, latest_tweet.text )
         
         # Render screen
         scn.refresh()
