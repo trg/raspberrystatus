@@ -19,6 +19,12 @@ Environment Variables
 Required:
  - WUNDERGROUND_API_KEY - sign up for one at wunderground.com
  - RS_DEBUG - if set to anything, is in DEBUG mode.  use `unset RS_DEBUG` to disable DEBUG mode
+ 
+Set the following from https://dev.twitter.com/apps/
+ - TWITTER_CONSUMER_KEY
+ - TWITTER_CONSUMER_SECRET
+ - TWITTER_ACCESS_TOKEN
+ - TWITTER_ACCESS_TOKEN_SECRET=
 
 Notes
 =====
